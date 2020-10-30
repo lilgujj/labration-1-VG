@@ -98,7 +98,7 @@ const textNodes = [
             },
             {
                 text: "lämna svärdet",
-                nextText: 0,
+                nextText: 7,
             },
         ]
     },
@@ -161,6 +161,16 @@ const textNodes = [
             {
                 text: "spela igen",
                 nextText: 0,
+            }
+        ]
+    },
+    {
+        id: 7,
+        text: "du tog inte upp svärdet och går vilse i djungeln",
+        options: [
+            {
+                text: "prova igen",
+                nextText: 0, 
             }
         ]
     }
