@@ -61,6 +61,8 @@ function selectOption(option) {
 
 /**
  * detta är en array för varje scen. varje scen har ett specifikt id. 
+ * @param {array} textNodes
+ * @param {array} options
  */
 const textNodes = [
     {
