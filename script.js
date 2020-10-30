@@ -17,13 +17,20 @@
 const textElement = document.getElementById("text")
 const optionsButtonElement = document.getElementById("btn-options")
 
-
+/**
+ * startar spelet
+ */
 function startGame() {
     showTextNode(0)
 
 }
 
-
+/**
+ * 
+ * @param {Number} textNodeIndex 
+ * denna funktion tar bort alla options dvs buttons som inte har med 
+ * vilken textnode/scen du är på. 
+ */
 function showTextNode(textNodeIndex) {
     let textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
     textElement.innerText = textNode.text
@@ -31,24 +38,34 @@ function showTextNode(textNodeIndex) {
         optionsButtonElement.removeChild(optionsButtonElement.firstChild)
     }
 
-
+/**
+ * denna if statement gör en ny knapp för varje option spelaren har
+ * beroende på vilken textNode han står på.
+ */
     textNode.options.forEach(option => {
         if (showOption(option)) {
             const button = document.createElement("button")
             button.innerText = option.text
-            button.classList.add("btn")
+            button.classList.add("btn") // lägger till styling på den nya button
             button.addEventListener("click", () => selectOption(option) )
             optionsButtonElement.appendChild(button)
         }
     })
 }
 
-
-function showOption (option) { 
-    return true
+/**
+ * gör det möjligt att visa option på koden ovan.
+ */
+function showOption () { 
+    return true;
 
 } 
-
+/**
+ * 
+ * @param {function} option 
+ * anropar id i arrayen textNodes och visar vilken text som skall
+ * skrivas ut.
+ */
 function selectOption(option) {
     const nextTextNodeId = option.nextText
     showTextNode(nextTextNodeId)
@@ -56,7 +73,9 @@ function selectOption(option) {
 }
 
 
-
+/**
+ * detta är en array för varje scen. varje scen har ett specifikt id. 
+ */
 const textNodes = [
     {
         id: 0,
@@ -146,5 +165,7 @@ const textNodes = [
         ]
     }
 ]
-
-startGame();
+/**
+ * startar funktionen direkt när sidan öppnas
+ */
+window.onload = startGame;
